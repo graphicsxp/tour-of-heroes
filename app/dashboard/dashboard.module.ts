@@ -3,11 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import dashboardRoutes from './dashboard.routing';
 import { SharedModule } from '../shared/shared.module';
-
-import HeroModule from '../hero/hero.module';
+//import { HeroSearchComponent } from '../hero/component/hero-search.component';
 
 @NgModule({
-    imports: [SharedModule, dashboardRoutes, HeroModule],
+    imports: [SharedModule, dashboardRoutes/*, HeroSearchComponent*/],
     exports: [],
     declarations: [DashboardComponent],
     providers: []

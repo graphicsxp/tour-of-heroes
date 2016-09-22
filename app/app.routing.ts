@@ -6,6 +6,7 @@ const appRoutes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module' },
     { path: 'heroes', loadChildren: 'app/hero/hero.module' },
+    { path: 'contact', loadChildren: 'app/contact/contact.module' },
 ];
 
 export default RouterModule.forRoot(appRoutes); 

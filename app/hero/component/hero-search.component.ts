@@ -18,7 +18,7 @@ import 'rxjs/add/operator/switchMap';
 
 
 import { HeroSearchService } from '../service/hero-search.service';
-import { Hero } from '../model/hero';
+import { Hero } from '../model/hero.model';
 
 @Component({
     moduleId: module.id,

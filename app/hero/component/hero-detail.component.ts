@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import "rxjs/add/operator/map";
 
 import { HeroService } from '../service/hero.service';
-import { Hero } from '../model/hero';
+import { Hero } from '../model/hero.model';
 
 
 @Component({
