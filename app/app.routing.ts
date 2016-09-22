@@ -1,28 +1,11 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HeroListComponent } from './hero/component/hero-list.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero/component/hero-detail.component';
 
 const appRoutes: Routes = [
-    {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-    },
-    {
-        path: 'heroes',
-        component: HeroListComponent
-    },
-    {
-        path: 'detail/:id',
-        component: HeroDetailComponent
-    },
-    {
-        path: 'dashboard',
-        component: DashboardComponent
-    }
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module' },
+    { path: 'heroes', loadChildren: 'app/hero/hero.module' },
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes); 
+export default RouterModule.forRoot(appRoutes); 
