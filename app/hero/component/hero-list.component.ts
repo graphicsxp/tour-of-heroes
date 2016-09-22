@@ -9,15 +9,13 @@ import { HeroService } from '../service/hero.service';
   styleUrls: ['./hero-list/hero-list.component.css']
 })
 export class HeroListComponent implements OnInit {
-
   heroes: Hero[];
   selectedHero: Hero;
-
-
+  
   constructor(private _heroService: HeroService, private _router: Router) { }
 
   ngOnInit() {
-    this.getHeroes();
+    this.getHeroes();  
   }
 
   getHeroes(): void {
