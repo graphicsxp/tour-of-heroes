@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import dashboardRoutes from './dashboard.routing';
 import { SharedModule } from '../shared/shared.module';
 //import { HeroSearchComponent } from '../hero/component/hero-search.component';
+//import { HeroService } from '../hero/service/hero.service'; 
 
 @NgModule({
     imports: [SharedModule, dashboardRoutes/*, HeroSearchComponent*/],

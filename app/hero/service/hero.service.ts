@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { Hero } from '../model/hero.model';
 
 import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HeroService {
@@ -12,16 +14,20 @@ export class HeroService {
 
     constructor(private _http: Http) { }
 
-    getHeroes(): Promise<Hero[]> {
-        return this._http.get(this._heroesUrl)        
-            .toPromise()
-            .then(response =>
-                response.json().data as Hero[])
+    getHeroes(): Observable<Hero[]> {
+        return this._http.get(this._heroesUrl)
+            .map(this._extractData)
             .catch(this._handleError);
     }
 
-    getHero(id: number): Promise<Hero> {
-        return this.getHeroes().then(heroes => heroes.find(hero => hero.id === id));
+    private _extractData(res: Response) {
+        let body = res.json();
+        return body.data || {};
+    }
+
+
+    getHero(id: number): Observable<Hero> {
+        return this.getHeroes().map(heroes => heroes.find(hero => hero.id === id));
     }
 
     update(hero: Hero): Promise<Hero> {

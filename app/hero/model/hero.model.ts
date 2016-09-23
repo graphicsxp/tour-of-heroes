@@ -1,4 +1,11 @@
 export class Hero {
-  id: number;
-  name: string;
+
+
+  constructor(public id: number, public name: string, public state = 'inactive') {
+
+  }
+
+  public toggleState() {
+    this.state = (this.state === 'active' ? 'inactive' : 'active');
+  }
 }
