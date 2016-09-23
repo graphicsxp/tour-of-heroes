@@ -6,6 +6,7 @@ import { HeroDetailComponent } from './component/hero-detail.component';
 
 const heroRoutes: Routes = [
     { path: '', component: HeroListComponent },
-    { path: ':id', component: HeroDetailComponent }];
+    { path: ':id', component: HeroDetailComponent }
+];
 
 export default RouterModule.forChild(heroRoutes);

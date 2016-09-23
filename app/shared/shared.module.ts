@@ -3,20 +3,19 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
-import { InMemoryDataService } from './service/in-memory-data.service';
+
+import { AwesomePipe } from './pipe/awesome.pipe';
+import { HighlightDirective } from './directive/highlight.directive';
+
 
 @NgModule({
     imports:
     [
-        HttpModule,
-        FormsModule,
         CommonModule,
-        InMemoryWebApiModule.forRoot(InMemoryDataService)
     ],
 
-    exports: [HttpModule, FormsModule, CommonModule],
-    declarations: [],
+    exports: [HttpModule, FormsModule, CommonModule, AwesomePipe, HighlightDirective],
+    declarations: [AwesomePipe, HighlightDirective],
     providers: [],
 })
 export class SharedModule { }

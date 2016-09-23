@@ -13,11 +13,11 @@ export class HeroService {
     constructor(private _http: Http) { }
 
     getHeroes(): Promise<Hero[]> {
-        return this._http.get(this._heroesUrl)
+        return this._http.get(this._heroesUrl)        
             .toPromise()
             .then(response =>
                 response.json().data as Hero[])
-            .catch(this.handleError);
+            .catch(this._handleError);
     }
 
     getHero(id: number): Promise<Hero> {
@@ -30,7 +30,7 @@ export class HeroService {
             .put(url, JSON.stringify(hero), { headers: this._headers })
             .toPromise()
             .then(() => hero)
-            .catch(this.handleError);
+            .catch(this._handleError);
     }
 
     create(heroName: string): Promise<Hero> {
@@ -38,7 +38,7 @@ export class HeroService {
             .post(this._heroesUrl, JSON.stringify({ name: heroName }), { headers: this._headers })
             .toPromise()
             .then(res => res.json().data)
-            .catch(this.handleError);
+            .catch(this._handleError);
     }
 
     delete(id: number): Promise<Hero> {
@@ -47,10 +47,10 @@ export class HeroService {
             .delete(url, { headers: this._headers })
             .toPromise()
             .then(() => null)
-            .catch(this.handleError);
+            .catch(this._handleError);
     }
 
-    private handleError(error: any): Promise<any> {
+    private _handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }

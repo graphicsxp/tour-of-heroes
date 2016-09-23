@@ -7,6 +7,7 @@ import heroRoutes from "./hero.routing";
 import { HeroListComponent } from './component/hero-list.component';
 import { HeroDetailComponent } from './component/hero-detail.component';
 import { HeroSearchComponent } from './component/hero-search.component';
+import { HeroService } from './service/hero.service';
 
 @NgModule({
     imports: [SharedModule, heroRoutes],

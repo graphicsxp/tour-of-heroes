@@ -17,7 +17,7 @@ export class ContactService {
     return this._http.get(this._contactsUrl)
       .toPromise()
       .then(response => response.json().data as Contact[])
-      .catch(this.handleError)
+      .catch(this.handleError) 
   };
 
   private handleError(error: any): Promise<any> {
